@@ -57,9 +57,9 @@ func (PhoneType) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []in
 // 手机
 type Phone struct {
 	// @inject_tag: gorm:"column:"phone""
-	Type PhoneType `protobuf:"varint,1,opt,name=type,enum=test.PhoneType" json:"type,omitempty"`
+	Type PhoneType `protobuf:"varint,1,opt,name=type,enum=test.PhoneType" json:"type,omitempty" gorm:"column:"phone""`
 	// @inject_tag: gorm:"column:"number""
-	Number string `protobuf:"bytes,2,opt,name=number" json:"number,omitempty"`
+	Number string `protobuf:"bytes,2,opt,name=number" json:"number,omitempty" gorm:"column:"number""`
 }
 
 func (m *Phone) Reset()                    { *m = Phone{} }
