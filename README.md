@@ -1,2 +1,2 @@
 # protobuf
-protobuf联系，增加inject tag， like gorm
+protobuf练习，增加inject tag， like gorm
