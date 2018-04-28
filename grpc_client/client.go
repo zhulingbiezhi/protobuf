@@ -1,11 +1,11 @@
 package main
 
 import (
-	pb "protobuf/grpc"
-	"google.golang.org/grpc"
 	"context"
-	"log"
+	"google.golang.org/grpc"
 	"google.golang.org/grpc/grpclog"
+	"log"
+	pb "protobuf/grpc"
 )
 
 var Address = "127.0.0.1:9999"
