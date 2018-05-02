@@ -4,6 +4,7 @@ import (
 	"context"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/grpclog"
+	"google.golang.org/grpc/metadata"
 	"log"
 	pb "protobuf/grpc"
 )
@@ -26,7 +27,14 @@ func main() {
 	// 调用方法
 	reqBody := new(pb.HelloRequest)
 	reqBody.Name = "gRPC"
-	r, err := c.SayHello(context.Background(), reqBody)
+	// new request context
+	ctx := context.Background()
+	// add key-value pairs of metadata to context
+	ctx = metadata.NewOutgoingContext(
+		ctx,
+		metadata.Pairs("appid", "101010", "appkey", "key"),
+	)
+	r, err := c.SayHello(ctx, reqBody)
 	if err != nil {
 		grpclog.Fatalln(err)
 	}

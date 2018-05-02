@@ -2,11 +2,10 @@ package main
 
 import (
 	"context"
-	"fmt"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
-	"google.golang.org/grpc/credentials"
-	"google.golang.org/grpc/grpclog"
+	//"google.golang.org/grpc/credentials"
+	//"google.golang.org/grpc/grpclog"
 	"google.golang.org/grpc/metadata"
 	"log"
 	"net"
@@ -34,12 +33,12 @@ func main() {
 	var opts []grpc.ServerOption
 
 	// TLS认证
-	creds, err := credentials.NewServerTLSFromFile("../../keys/server.pem", "../../keys/server.key")
-	if err != nil {
-		grpclog.Fatalf("Failed to generate credentials %v", err)
-	}
-
-	opts = append(opts, grpc.Creds(creds))
+	//creds, err := credentials.NewServerTLSFromFile("../../keys/server.pem", "../../keys/server.key")
+	//if err != nil {
+	//	grpclog.Fatalf("Failed to generate credentials %v", err)
+	//}
+	//
+	//opts = append(opts, grpc.Creds(creds))
 
 	// 注册interceptor
 	var interceptor grpc.UnaryServerInterceptor
